@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="张文龙（Wenlong Zhang）的个人主页 —— 天津大学深圳学院助理教授，专注 Vibe Coding，通过 AI 实现都市农业水培与污水资源回收。" />
+  <meta name="author" content="张文龙 Wenlong Zhang" />
+  <title>张文龙 Wenlong Zhang · 个人主页</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body data-lang="zh">
+  <!-- 顶部导航 -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="主导航">
+      <a class="nav__brand" href="#top">WZ<span class="nav__brand-dot">.</span></a>
+      <button class="nav__toggle" id="navToggle" aria-label="展开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__list" id="navList">
+        <li><a href="#about">关于我</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#interests">兴趣</a></li>
+        <li><a href="#digital-twin">数字分身</a></li>
+        <li><a class="btn btn--primary btn--small" href="#contact">联系我</a></li>
+      </ul>
+      <a class="lang-switch" href="index-en.html" aria-label="Switch to English">
+        <span class="lang-switch__cur">中</span><span class="lang-switch__bar">/</span><span>EN</span>
+      </a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero 首屏 -->
+    <section class="hero">
+      <div class="hero__visual" aria-hidden="true">
+        <span class="hero__emoji">🥬</span>
+        <span class="hero__emoji">💧</span>
+        <span class="hero__emoji">🤖</span>
+        <span class="hero__emoji">🎓</span>
+        <span class="hero__emoji">💡</span>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__avatar" aria-hidden="true">
+          <!-- 头像占位：字母徽标，等真实头像后再替换 -->
+          <span class="hero__avatar-initials">WZ</span>
+        </div>
+        <p class="hero__eyebrow">你好，我是</p>
+        <h1 class="hero__name">张文龙 <span class="hero__name-en">Wenlong Zhang</span></h1>
+        <p class="hero__tagline">天津大学深圳学院助理教授 · 带着超年轻的心态，和大家一起学习 AI</p>
+        <p class="hero__desc">专注于 Vibe Coding 的教学与研究，通过 AI 探索都市农业水培与污水资源回收，让技术在真实场景里创造价值。</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#projects">查看我的项目</a>
+          <a class="btn btn--ghost" href="#contact">联系我</a>
+        </div>
+        <div class="hero__chips" aria-label="标签">
+          <span class="chip"><span class="chip__icon" aria-hidden="true">💻</span>Vibe Coding</span>
+          <span class="chip"><span class="chip__icon" aria-hidden="true">🤖</span>AI + 农业</span>
+          <span class="chip"><span class="chip__icon" aria-hidden="true">🎓</span>教育</span>
+          <span class="chip"><span class="chip__icon" aria-hidden="true">🥬</span>都市水培</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section__title">关于我</h2>
+        <p class="section__lead">一个不卷、爱玩、也认真做研究的人。</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3 class="card__title">我做什么</h3>
+            <p class="card__body">我目前主要专研 Vibe Coding，和同学们一起学习 AI，把编程做成一件人人能上手、能出作品的事。</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">研究方向</h3>
+            <p class="card__body">利用 AI 实现都市农业水培与污水资源回收，探索人工智能在可持续农业与环境工程中的应用。</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">一个记忆点</h3>
+            <p class="card__body">超年轻的心态，不卷。拿得起放得下，专业认真也保持松弛。</p>
+          </article>
+          <article class="card">
+            <h3 class="card__title">所在城市</h3>
+            <p class="card__body">深圳。在这里教书、做研究，也在这里和同学们一起成长。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 项目 / 作品 -->
+    <section id="projects" class="section section--alt section--with-banner">
+      <div class="banner-float" aria-hidden="true">
+        <span class="banner-float__emoji">🌱</span>
+        <span class="banner-float__emoji">🌊</span>
+        <span class="banner-float__emoji">☀️</span>
+      </div>
+      <div class="container">
+        <h2 class="section__title">项目与作品</h2>
+        <p class="section__lead">一些正在做、做成了、以及还在路上的东西。</p>
+        <div class="card-grid">
+          <article class="card card--project">
+            <div class="card__badge">正在使用</div>
+            <h3 class="card__title">Calculus Bridge &amp; Linear Algebra Bridge</h3>
+            <p class="card__body">为大一新生全英文学习数学而建的网站，帮助初入大学的同学跨过微积分与线性代数的语言与知识门槛。</p>
+            <div class="card__links">
+              <a class="text-link" href="https://wzhang60.github.io/calculus-bridge/" target="_blank" rel="noopener noreferrer">Calculus Bridge ↗</a>
+              <a class="text-link" href="https://wzhang60.github.io/Linear-Algebra-Bridge/" target="_blank" rel="noopener noreferrer">Linear Algebra Bridge ↗</a>
+            </div>
+          </article>
+          <article class="card card--project">
+            <div class="card__badge">进行中</div>
+            <h3 class="card__title">下一个项目</h3>
+            <p class="card__body">正在筹备中的新作品，敬请期待。这个区域会在后续迭代中持续补充。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 兴趣爱好 -->
+    <section id="interests" class="section">
+      <div class="container">
+        <h2 class="section__title">我的兴趣</h2>
+        <p class="section__lead">除了研究和教学，生活里也有很多热爱。</p>
+        <ul class="interest-list">
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">⚽</span>足球五大联赛</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎱</span>台球</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎵</span>音乐</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">📈</span>炒股</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎫</span>体彩</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">👶</span>带娃</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 数字分身静态聊天原型 -->
+    <section id="digital-twin" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">数字分身 · Digital Twin</h2>
+        <p class="section__lead">一个正在生长中的 AI 分身原型。先用几段预置对话展示它“如何介绍我”，后续课程再接入真正的对话能力。</p>
+        <div class="twin-app">
+          <div class="twin-app__head">
+            <span class="twin-app__avatar" aria-hidden="true">WZ</span>
+            <div>
+              <strong>文龙的数字分身</strong>
+              <span class="twin-app__status">● 原型 · 预置对话</span>
+            </div>
+          </div>
+          <div class="twin-app__body" id="twinBody" aria-live="polite">
+            <div class="msg msg--bot">
+              <div class="msg__body">你好，我是张文龙的数字分身原型。虽然现在还不能真正“回答”，但我可以先把关于他的一些事情讲给你听。你想知道什么？</div>
+            </div>
+          </div>
+          <div class="twin-app__suggest" id="twinSuggest">
+            <button type="button" class="suggest-chip" data-q="你是谁？">你是谁？</button>
+            <button type="button" class="suggest-chip" data-q="你如何保持生活和工作的平衡？">如何保持生活与工作的平衡？</button>
+            <button type="button" class="suggest-chip" data-q="你在研究什么？">你在研究什么？</button>
+          </div>
+          <form class="twin-app__input" id="twinForm">
+            <input type="text" id="twinInput" placeholder="输入你想问的（原型，暂不真正回答）" autocomplete="off" />
+            <button type="submit" class="btn btn--primary btn--small">发送</button>
+          </form>
+        </div>
+        <p class="twin-note">说明：这是静态聊天原型，仅含预置内容，不会上传你的任何输入。真正的 AI 对话将在后续课程中实现。</p>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section__title">联系我</h2>
+        <p class="section__lead">有问题、想交流、或者想合作，欢迎联系。</p>
+        <div class="contact-links">
+          <a class="contact-card" href="mailto:wzhang60@tju.edu.cn" id="emailLink">
+            <span class="contact-card__label">邮箱</span>
+            <span class="contact-card__value" id="emailValue">wzhang60@tju.edu.cn</span>
+          </a>
+          <a class="contact-card" href="https://github.com/wzhang60" target="_blank" rel="noopener noreferrer" id="githubLink">
+            <span class="contact-card__label">GitHub</span>
+            <span class="contact-card__value" id="githubValue">github.com/wzhang60</span>
+          </a>
+          <div class="contact-card">
+            <span class="contact-card__label">所在城市</span>
+            <span class="contact-card__value">深圳</span>
+          </div>
+        </div>
+        <p class="contact-note">以上联系方式均真实可用，欢迎通过邮箱与我交流，或访问我的 GitHub 查看项目。</p>
+      </div>
+    </section>
+  
+    <!-- 意见反馈 -->
+    <section id="feedback" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title">意见反馈</h2>
+        <p class="section__lead">我很想知道你的真实想法。留个言，帮我把它做得更好。</p>
+        <form class="fb-form" id="feedbackForm" novalidate>
+          <div class="fb-fields">
+            <div class="fb-field">
+              <label class="fb-label" for="fbVisitorName">你的昵称</label>
+              <input class="fb-input" type="text" id="fbVisitorName" name="visitor_name" maxlength="80" placeholder="怎么称呼你？" autocomplete="nickname" />
+            </div>
+            <div class="fb-field">
+              <label class="fb-label" for="fbRelationship">和我的关系</label>
+              <select class="fb-input" id="fbRelationship" name="relationship">
+                <option value="">请选择…</option>
+                <option value="friend">朋友</option>
+                <option value="family">亲人</option>
+                <option value="classmate">同学</option>
+                <option value="colleague">同事</option>
+                <option value="teacher">老师</option>
+                <option value="student">学生</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            <div class="fb-field fb-field--wide">
+              <label class="fb-label" for="fbMessage">你的建议</label>
+              <textarea class="fb-input fb-textarea" id="fbMessage" name="message" maxlength="2000" placeholder="任何想法都可以，越具体越好（例如：想要一个…、这里可以改进…）"></textarea>
+            </div>
+          </div>
+          <div class="fb-actions">
+            <button type="submit" class="btn btn--primary" id="fbSubmit">提交反馈</button>
+          </div>
+          <p class="fb-status" id="fbStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 张文龙 Wenlong Zhang · 用 Vibe Coding 做出、发布、再改进。</p>
+      <p class="site-footer__small">This site is built with Vibe Coding — created, published, and improved step by step.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/feedback.js"></script>
+</body>
+</html>
