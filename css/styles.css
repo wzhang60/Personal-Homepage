@@ -174,110 +174,68 @@ h1, h2, h3, p { margin: 0; }
 .btn--ghost:hover { border-color: var(--c-leaf); color: var(--c-leaf); }
 .btn--small { padding: 8px 18px; font-size: 0.9rem; }
 
-/* --- Hero --- */
+/* --- Hero：方案A 双栏（左身份信息 / 右缩小植物） --- */
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 72px 0 0;
+  padding: 64px 0 44px;
   background:
-    radial-gradient(1200px 500px at 80% -10%, var(--c-sun-soft), transparent),
-    radial-gradient(900px 420px at 10% 10%, var(--c-aqua-soft), transparent),
+    radial-gradient(1100px 480px at 82% -8%, var(--c-sun-soft), transparent),
+    radial-gradient(880px 420px at 8% 12%, var(--c-aqua-soft), transparent),
     linear-gradient(180deg, #fff 0%, var(--c-bg-alt) 100%);
-}
-.hero__visual {
-  position: relative;
-  width: 100%;
-  margin: 34px auto 0;
-  max-width: 640px;
-  padding: 0 var(--gap);
-  text-align: center;
-}
-.hero__visual::before {
-  content: '';
-  position: absolute;
-  inset: -18px;
-  background: linear-gradient(135deg, var(--c-sun-soft), var(--c-aqua-soft));
-  border-radius: calc(var(--radius) + 12px);
-  z-index: -1;
-  opacity: 0.6;
-}
-.hero__emoji {
-  display: inline-block;
-  font-size: 34px;
-  line-height: 1;
-  margin: 0 12px;
-  vertical-align: middle;
 }
 .hero__inner {
   position: relative;
   z-index: 2;
-  text-align: center;
-  padding-top: 4px;
-}
-.hero__avatar {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 22px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--c-leaf), var(--c-aqua));
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow);
+  gap: 40px;
 }
-.hero__avatar-initials {
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-}
+.hero__intro { max-width: 560px; }
 .hero__eyebrow {
   color: var(--c-aqua);
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 0.82rem;
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 .hero__name {
-  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-size: clamp(2.1rem, 6vw, 3.6rem);
   font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.5px;
+  line-height: 1.12;
+  letter-spacing: -0.8px;
 }
 .hero__name-en {
   display: block;
-  font-size: 0.55em;
+  font-size: 0.5em;
   font-weight: 600;
   color: var(--c-ink-mute);
-  letter-spacing: 1px;
-  margin-top: 6px;
+  letter-spacing: 1.5px;
+  margin-top: 8px;
 }
 .hero__tagline {
-  margin: 18px auto 10px;
-  max-width: 640px;
+  margin: 20px 0 12px;
   color: var(--c-ink-soft);
-  font-size: 1.08rem;
+  font-size: 1.16rem;
+  font-weight: 600;
 }
 .hero__desc {
-  max-width: 620px;
-  margin: 0 auto;
   color: var(--c-ink-mute);
   font-size: 1rem;
 }
 .hero__actions {
-  margin-top: 26px;
+  margin-top: 28px;
   display: flex;
   gap: 14px;
-  justify-content: center;
   flex-wrap: wrap;
 }
 .hero__chips {
-  margin-top: 28px;
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
 }
 .chip {
   background: #fff;
@@ -303,6 +261,139 @@ h1, h2, h3, p { margin: 0; }
   line-height: 1;
   flex: 0 0 26px;
 }
+/* 右侧缩小植物 */
+.hero__visual {
+  position: relative;
+  text-align: center;
+}
+.hero__plant {
+  position: relative;
+  max-width: 340px;
+  margin: 0 auto;
+}
+.hero__plant::before {
+  content: "";
+  position: absolute;
+  inset: 30px 14px 10px;
+  background: linear-gradient(135deg, var(--c-sun-soft), var(--c-aqua-soft));
+  border-radius: 50%;
+  z-index: -1;
+}
+.hero__plant-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(31, 157, 67, 0.20));
+  user-select: none;
+}
+.hero__visual-caption {
+  margin-top: 6px;
+  color: var(--c-ink-mute);
+  font-size: 0.82rem;
+  letter-spacing: 1px;
+}
+
+/* 响应式：手机按 身份 → 按钮 → 小幅视觉 → 作品 的顺序 */
+@media (max-width: 900px) {
+  .hero__inner { gap: 26px; }
+}
+@media (max-width: 720px) {
+  .hero { padding: 48px 0 40px; }
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .hero__intro { max-width: 100%; }
+  .hero__actions { display: flex; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 12px; width: 100%; }
+  .hero__actions .btn { display: flex; align-items: center; justify-content: center; width: 100% !important; max-width: none; box-sizing: border-box; }
+  .hero__actions .btn--ghost { background: #fff; }
+  /* 视觉上移：小幅植物跟在按钮之后，占位收窄 */
+  .hero__visual { order: 3; margin-top: 30px; }
+  .hero__plant { max-width: 200px; }
+}
+
+/* --- 展示卡：教学与作品（截图 + 服务对象 + 用途 + 入口） --- */
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap);
+}
+.showcase-card {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.16s ease, box-shadow 0.2s ease;
+}
+.showcase-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.showcase-card__media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--c-bg-alt);
+  border-bottom: 1px solid var(--c-line);
+}
+.showcase-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.showcase-card__body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.showcase-card__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.showcase-card__type { font-size: 0.78rem; color: var(--c-ink-mute); letter-spacing: 1px; font-weight: 600; }
+.badge-color {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--c-leaf);
+}
+.showcase-card__title { font-size: 1.35rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.4px; }
+.showcase-card__desc { color: var(--c-ink-soft); font-size: 0.97rem; margin-bottom: 16px; }
+.showcase-card__facts { display: flex; flex-direction: column; gap: 8px; margin-bottom: 18px; }
+.showcase-card__facts li { color: var(--c-ink-mute); font-size: 0.9rem; }
+.showcase-card__facts strong { color: var(--c-ink-soft); font-weight: 600; margin-right: 8px; }
+.showcase-card__body .text-link { margin-top: auto; }
+
+/* --- 关于与研究 --- */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gap);
+}
+.about-card {
+  background: #fff;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow);
+}
+.about-card__title { font-size: 1.12rem; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+.about-card__title::before {
+  content: "";
+  width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--c-leaf), var(--c-aqua));
+  flex: 0 0 10px;
+}
+.about-card__body { color: var(--c-ink-soft); font-size: 0.97rem; line-height: 1.7; }
+.about-note {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--c-sun-soft), var(--c-aqua-soft));
+  border: 1px solid var(--c-sun-line);
+  border-radius: var(--radius);
+  padding: 22px 26px;
+}
+.about-note__label { font-size: 0.78rem; font-weight: 700; letter-spacing: 1.5px; color: var(--c-ink-mute); text-transform: uppercase; margin-bottom: 12px; }
+.about-note__text { color: var(--c-ink-soft); font-size: 0.97rem; margin-top: 6px; }
+.about-note__text strong { color: var(--c-ink); margin-right: 6px; }
 
 /* --- 板块横幅浮动装饰 --- */
 .section--with-banner { position: relative; }
@@ -423,6 +514,64 @@ h1, h2, h3, p { margin: 0; }
   line-height: 1;
   flex: 0 0 34px;
 }
+/* 一个 SVG 图标替换了 emoji，让容器保持居中 */
+.interest-list__icon svg { display: block; }
+
+/* 悬停气泡：解释这个兴趣背后的故事 */
+.interest-list__item {
+  position: relative;
+  cursor: pointer;
+}
+.interest-tip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translate(-50%, 6px);
+  background: #fff;
+  color: var(--c-ink);
+  border: 1px solid var(--c-line);
+  border-left: 3px solid var(--c-aqua);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: var(--shadow-hover);
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s;
+  z-index: 20;
+}
+.interest-tip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #fff;
+}
+.interest-list__item:nth-child(1) .interest-tip,
+.interest-list__item:nth-child(4) .interest-tip {
+  left: 0;
+  transform: translate(0, 6px);
+}
+.interest-list__item:nth-child(1) .interest-tip::after,
+.interest-list__item:nth-child(4) .interest-tip::after {
+  left: 24px;
+  transform: none;
+}
+.interest-list__item:hover .interest-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+.interest-list__item:nth-child(1):hover .interest-tip,
+.interest-list__item:nth-child(4):hover .interest-tip {
+  transform: translate(0, 0);
+}
 
 /* --- 鏁板瓧鍒嗚韩鑱婂ぉ鍘熷瀷 --- */
 .twin-app {
@@ -538,10 +687,11 @@ h1, h2, h3, p { margin: 0; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: var(--gap);
+  margin-top: 28px;
 }
 .contact-card {
-  background: #fff;
-  border: 1px solid var(--c-line);
+  background: var(--c-aqua-soft);
+  border: 1px solid var(--c-aqua);
   border-radius: var(--radius);
   padding: 22px;
   display: flex;
@@ -635,4 +785,328 @@ h1, h2, h3, p { margin: 0; }
 @media (min-width: 640px) {
   .fb-fields { grid-template-columns: 1fr 1fr; }
   .fb-field--wide { grid-column: 1 / -1; }
+}
+
+/* ==========================================================================
+   Plant Nav · 小绿叶菜交互式导航（imagegen 主图 + 叶片热区）
+   原创设计：Hero 与关于我之间的一株有生命感的绿叶菜，
+   六片大叶对应六个板块，悬停叶片浮出板块名，点击跳转。
+   ========================================================================== */
+.plant-nav { padding: 48px 0 80px; }
+.plant {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+/* --- 图片 + 热区覆盖层：stage 负责定位，map 绝对贴合图片 --- */
+.plant__stage {
+  position: relative;
+  width: min(420px, 74vw);
+  max-width: 420px;
+  margin: 0 auto;
+}
+.plant__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 18px 32px rgba(31, 157, 67, 0.18));
+  user-select: none;
+}
+.plant__map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* --- 叶片热区：透明可点击，悬停浮出板块名气泡 --- */
+.leaf-hot { cursor: pointer; }
+.leaf-hot ellipse {
+  fill: rgba(31, 157, 67, 0.001);
+  transition: fill 0.25s ease;
+}
+.leaf-hot:hover ellipse,
+.leaf-hot:focus-visible ellipse {
+  fill: rgba(31, 157, 67, 0.10);
+}
+
+/* 悬停浮现的板块名气泡 */
+.leaf-hot__tip {
+  fill: rgba(255, 255, 255, 0.96);
+  stroke: rgba(31, 157, 67, 0.18);
+  stroke-width: 1.5;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.leaf-hot__label {
+  fill: #12241b;
+  font-family: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-anchor: middle;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.leaf-hot:hover .leaf-hot__tip,
+.leaf-hot:focus-visible .leaf-hot__tip,
+.leaf-hot:hover .leaf-hot__label,
+.leaf-hot:focus-visible .leaf-hot__label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.plant__hint {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--c-ink-mute, #6f8a7c);
+  letter-spacing: 0.02em;
+}
+
+/* --- 滚动定位补偿（固定吸顶 nav 高度) --- */
+#works, #about, #digital-twin, #contact, #feedback {
+  scroll-margin-top: 96px;
+}
+
+@media (max-width: 720px) {
+  .plant-nav { padding: 28px 0 56px; }
+  .plant__stage { width: min(340px, 80vw); }
+  .leaf-hot__label { font-size: 28px; }
+}
+
+/* ==========================================================================
+   Border Beam · 光带沿卡片边缘流动
+   复刻 MagicUI BorderBeam，用纯 CSS 实现（无需框架）。
+   机制：
+   1) 卡片 ::before 上挂一个巨大的 conic-gradient 圆盘，
+      通过 @property --beam-angle 让渐变角度匀速旋转；
+   2) 用 border 圆环 + mask-composite:exclude 把可见范围裁成
+      1px 的圆角描边，于是彩色光带就贴着边缘流动。
+   配色沿用主题：水培绿 → 清新青 → 阳光黄。
+   ========================================================================== */
+
+@property --beam-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+:root {
+  --beam-duration: 6s;   /* 光带转一圈的秒数，越大越慢越优雅 */
+  --beam-width: 2px;     /* 光带宽度（沿边缘），调大可更明显 */
+}
+
+/* 让卡片成为光带的定位基准 */
+.twin-app {
+  position: relative;
+}
+
+/* 光带本体：旋转的圆锥渐变，用圆环遮罩裁出边缘一圈 */
+.twin-app::before {
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  border: var(--beam-width) solid transparent;
+  /* 旋转的圆锥光带：绿 → 青 → 阳光黄，其余透明 -> 单条流动光带 */
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0%,
+    var(--c-aqua) 6%,
+    var(--c-leaf-deep) 12%,
+    var(--c-sun) 18%,
+    transparent 32%
+  );
+  /* 仅保留 border 圆环区域可见 */
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: border-beam-spin var(--beam-duration) linear infinite;
+}
+
+/* 一般卡片：光带正好落在自己那一圈 1px 边框上 */
+/* （方案A收敛：仅数字分身保留彩色动态光带，普通卡片/联系卡用干净边框） */
+
+/* 数字分身容器自带 overflow:hidden（用于圆角裁切），
+   光带放在边框内侧，避免被父级裁掉 */
+.twin-app::before {
+  inset: 0;
+}
+
+@keyframes border-beam-spin {
+  to { --beam-angle: 360deg; }
+}
+
+/* 悬停点亮：光带变粗、变亮、转得更快 */
+.twin-app:hover::before {
+  --beam-width: 3px;
+  animation-duration: calc(var(--beam-duration) * 0.7);
+  filter: brightness(1.2) saturate(1.15);
+}
+
+/* 移动端稍微收窄光带，避免过于抢眼 */
+@media (max-width: 720px) {
+  .twin-app::before {
+    --beam-width: 1.5px;
+  }
+}
+
+/* 偏好减少动态：直接隐藏光带，保留纯净边框 */
+@media (prefers-reduced-motion: reduce) {
+  .twin-app::before {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   Pointer · 自定义光标（复刻 MagicUI Pointer 的思路）
+   用主题色做了两枚光标：
+   - 小叶子：全站默认光标，贴合水培主题
+   - 小树苗：悬停到可点/可交互处时，光标"长出"一棵小树苗
+   素材：assets/cursor-leaf.svg、assets/cursor-sprout.svg
+   提示：SVG 光标在 Chrome / Edge / Firefox 良好支持；
+         Safari 不支持 SVG 光标时会回退到默认指针（已设 fallback）。
+   ========================================================================== */
+
+/* 全站默认：小叶子（热点在叶尖） */
+html {
+  cursor: url("../assets/cursor-leaf.svg") 2 2, auto;
+}
+
+/* 可点击 / 可交互：变成小树苗（热点在茎的根部） */
+a[href],
+button,
+summary,
+[role="button"],
+[onclick],
+input[type="submit"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+select,
+label[for],
+.leaf-hot {
+  cursor: url("../assets/cursor-sprout.svg") 12 22, pointer !important;
+}
+
+/* 文本输入恢复正常 I 形光标，避免影响输入与选择 */
+input,
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
+/* 触屏设备没有"悬停"概念，直接关掉自定义光标，避免浪费渲染 */
+@media (hover: none) and (pointer: coarse) {
+  html {
+    cursor: auto;
+  }
+}
+
+/* ==========================================================================
+   Hexagon Pattern · 六边形背景修饰（复刻 MagicUI HexagonPattern 的思路）
+    原版是 React + SVG <pattern> 组件，纯静态主页无法直接用；
+    这里等价复刻成纯 CSS：在 hero 上挂一层可平铺的 SVG 六边形纹理，
+    配合径向渐隐遮罩，只在水培风的浅色背景上留下细腻的"细胞状"纹路。
+    （方案A收敛：六边形只放在首屏 hero，正文用更干净的背景）
+    素材：assets/hexagon-pattern.svg（无缝平铺 tile，flat-top，radius=40，gap=0）
+    ========================================================================== */
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;               /* 高于 hero 背景渐变、低于 hero 内容(z=2) */
+  pointer-events: none;     /* 完全穿透，不挡任何点击 */
+  background-image: url("../assets/hexagon-pattern.svg");
+  background-size: 120px 69.28px;
+  background-repeat: repeat;
+  opacity: 0.14;            /* 纹理层：清晰可辨但保持柔和 */
+  -webkit-mask-image: radial-gradient(135% 105% at 50% 20%, #000 0%, rgba(0,0,0,0.72) 58%, transparent 98%);
+          mask-image: radial-gradient(135% 106% at 50% 20%, #000 0%, rgba(0,0,0,0.72) 58%, transparent 98%);
+}
+
+/* 移动端略淡，避免挤占小屏空间 */
+@media (max-width: 720px) {
+  .hero::after { opacity: 0.12; }
+}
+
+/* ==========================================================================
+   Scroll Progress · 滚动进度条 + 滚动进场动画（复刻 MagicUI ScrollProgress）
+   原版是 React 组件；纯静态站用原生 JS + IntersectionObserver 等价复刻：
+   1) 页面顶部一条随滚动增长的进度条（水培配色）；
+   2) 元素进入视口时做淡入 / 依次出现的进场动画（渐进增强，无 JS 也正常显示）。
+   ========================================================================== */
+
+/* ---- 顶部滚动进度条 ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 60;              /* 高于导航(z=50)，紧贴页面顶部 */
+  pointer-events: none;
+  background: transparent;
+}
+.scroll-progress__bar {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--c-leaf), var(--c-aqua) 55%, var(--c-sun));
+  border-radius: 0 999px 999px 0;
+  transition: width 80ms linear;
+}
+
+/* ---- 滚动进场动画（渐进增强：仅当 JS 加上 .reveal 后才进入隐藏态） ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px) scale(0.985);
+  filter: blur(7px);
+  transition:
+    opacity 0.85s ease var(--reveal-delay, 0ms),
+    transform 0.85s cubic-bezier(0.16, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    filter 0.85s ease var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* 依次出现：组内子元素按 --reveal-delay 错开时间（JS 依索引赋值） */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s ease var(--reveal-delay, 0ms),
+    transform 0.7s cubic-bezier(0.16, 1, 0.36, 1) var(--reveal-delay, 0ms);
+}
+.reveal-stagger.is-visible > * {
+  opacity: 1;
+  transform: none;
+}
+
+/* 偏好减少动态：去掉位移与模糊，但保留一个轻量、平滑的淡入 */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-stagger > * {
+    filter: none !important;
+    transform: none !important;
+    transition: opacity 0.28s ease var(--reveal-delay, 0ms) !important;
+  }
 }

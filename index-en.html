@@ -5,14 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Wenlong Zhang — Assistant Professor at the Shenzhen Institute of Tianjin University. Focused on Vibe Coding, using AI for urban hydroponic agriculture and wastewater resource recovery." />
   <meta name="author" content="Wenlong Zhang" />
-  <title>Wenlong Zhang · Personal Homepage</title>
+  <title>Wenlong Zhang · Personal Homepage · V2.3 Preview</title>
+  <!-- Preview v2.3: Plan A — dual-column hero + showcase-card works + converged effects (hexagon only in hero, beam only on digital twin) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=v23" />
+  <style>
+    /* Fallback: keep hero identity content immediately readable */
+    .hero__inner { opacity: 1; }
+  </style>
 </head>
 <body data-lang="en">
-  <!-- Top navigation -->
+  <!-- Top scroll progress (MagicUI ScrollProgress replica) -->
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar"></div></div>
+
+  <!-- Top navigation: Plan A four-section entries + zh/en switch -->
   <header class="site-header">
     <nav class="nav container" aria-label="Main navigation">
       <a class="nav__brand" href="#top">WZ<span class="nav__brand-dot">.</span></a>
@@ -20,123 +28,117 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav__list" id="navList">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#interests">Interests</a></li>
+        <li><a href="#works">Teaching &amp; Works</a></li>
+        <li><a href="#about">About &amp; Research</a></li>
         <li><a href="#digital-twin">Digital Twin</a></li>
         <li><a class="btn btn--primary btn--small" href="#contact">Contact</a></li>
       </ul>
       <a class="lang-switch" href="index.html" aria-label="切换到中文">
-        <span>中</span><span class="lang-switch__bar">/</span><span class="lang-switch__cur">EN</span>
+        <span class="lang-switch__cur">中</span><span class="lang-switch__bar">/</span><span>EN</span>
       </a>
     </nav>
   </header>
 
   <main id="top">
-    <!-- Hero -->
+    <!-- Hero: Plan A dual column — left identity, right small plant (research-agriculture imagery alongside identity) -->
     <section class="hero">
-      <div class="hero__visual" aria-hidden="true">
-        <span class="hero__emoji">🥬</span>
-        <span class="hero__emoji">💧</span>
-        <span class="hero__emoji">🤖</span>
-        <span class="hero__emoji">🎓</span>
-        <span class="hero__emoji">💡</span>
-      </div>
       <div class="container hero__inner">
-        <div class="hero__avatar" aria-hidden="true">
-          <!-- Letter-mark avatar placeholder; replace with a real photo later -->
-          <span class="hero__avatar-initials">WZ</span>
+        <div class="hero__intro">
+          <p class="hero__eyebrow">Hi, I'm</p>
+          <h1 class="hero__name">Wenlong Zhang <span class="hero__name-en">张文龙</span></h1>
+          <p class="hero__tagline">Assistant Professor at the Shenzhen Institute of Tianjin University · Learning AI together with a super-young mindset</p>
+          <p class="hero__desc">I focus on teaching and research in Vibe Coding, and use AI to explore urban hydroponic agriculture and wastewater resource recovery — putting technology to work in real scenarios.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#works">View my works</a>
+            <a class="btn btn--ghost" href="#contact">Contact me</a>
+          </div>
+          <div class="hero__chips" aria-label="Tags">
+            <span class="chip"><span class="chip__icon" aria-hidden="true">💻</span>Vibe Coding</span>
+            <span class="chip"><span class="chip__icon" aria-hidden="true">🤖</span>AI + Agriculture</span>
+            <span class="chip"><span class="chip__icon" aria-hidden="true">🎓</span>Education</span>
+            <span class="chip"><span class="chip__icon" aria-hidden="true">🥬</span>Urban Hydroponics</span>
+          </div>
         </div>
-        <p class="hero__eyebrow">Hi, I'm</p>
-        <h1 class="hero__name">Wenlong Zhang <span class="hero__name-en">张文龙</span></h1>
-        <p class="hero__tagline">Assistant Professor at the Shenzhen Institute of Tianjin University · Learning AI together with a super-young mindset</p>
-        <p class="hero__desc">I focus on teaching and research in Vibe Coding, and use AI to explore urban hydroponic agriculture and wastewater resource recovery — putting technology to work in real scenarios.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#projects">View my projects</a>
-          <a class="btn btn--ghost" href="#contact">Contact me</a>
-        </div>
-        <div class="hero__chips" aria-label="Tags">
-          <span class="chip"><span class="chip__icon" aria-hidden="true">💻</span>Vibe Coding</span>
-          <span class="chip"><span class="chip__icon" aria-hidden="true">🤖</span>AI + Agriculture</span>
-          <span class="chip"><span class="chip__icon" aria-hidden="true">🎓</span>Education</span>
-          <span class="chip"><span class="chip__icon" aria-hidden="true">🥬</span>Urban Hydroponics</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section__title">About Me</h2>
-        <p class="section__lead">Someone who doesn't over-strive but loves to play — and takes research seriously.</p>
-        <div class="card-grid">
-          <article class="card">
-            <h3 class="card__title">What I do</h3>
-            <p class="card__body">I mainly work on Vibe Coding, learning AI together with students, and turning programming into something everyone can pick up and make real projects with.</p>
-          </article>
-          <article class="card">
-            <h3 class="card__title">Research</h3>
-            <p class="card__body">Using AI to enable urban hydroponic agriculture and wastewater resource recovery — exploring how AI applies to sustainable agriculture and environmental engineering.</p>
-          </article>
-          <article class="card">
-            <h3 class="card__title">A memory point</h3>
-            <p class="card__body">A super-young mindset, no over-striving. I take things seriously when it matters, and stay relaxed the rest of the time.</p>
-          </article>
-          <article class="card">
-            <h3 class="card__title">Where I live</h3>
-            <p class="card__body">Shenzhen. I teach, do research, and grow together with students here.</p>
-          </article>
+        <div class="hero__visual" aria-hidden="true">
+          <div class="hero__plant">
+            <img class="hero__plant-img" src="assets/hydroponic-veg.png" alt="" width="710" height="800" loading="eager">
+          </div>
+          <p class="hero__visual-caption">Research &amp; Agriculture · Urban Hydroponics</p>
         </div>
       </div>
     </section>
 
-    <!-- Projects / Works -->
-    <section id="projects" class="section section--alt section--with-banner">
-      <div class="banner-float" aria-hidden="true">
-        <span class="banner-float__emoji">🌱</span>
-        <span class="banner-float__emoji">🌊</span>
-        <span class="banner-float__emoji">☀️</span>
-      </div>
+    <!-- Teaching & Works: two Bridges, one showcase card each (screenshot + audience + purpose + access) -->
+    <section id="works" class="section">
       <div class="container">
-        <h2 class="section__title">Projects &amp; Works</h2>
-        <p class="section__lead">Things I'm doing, have built, and am still working on.</p>
-        <div class="card-grid">
-          <article class="card card--project">
-            <div class="card__badge">In use</div>
-            <h3 class="card__title">Calculus Bridge &amp; Linear Algebra Bridge</h3>
-            <p class="card__body">Websites built to help first-year students learn math entirely in English — bridging the language and knowledge gap in calculus and linear algebra.</p>
-            <div class="card__links">
-              <a class="text-link" href="https://wzhang60.github.io/calculus-bridge/" target="_blank" rel="noopener noreferrer">Calculus Bridge ↗</a>
-              <a class="text-link" href="https://wzhang60.github.io/Linear-Algebra-Bridge/" target="_blank" rel="noopener noreferrer">Linear Algebra Bridge ↗</a>
+        <h2 class="section__title">Teaching &amp; Works</h2>
+        <p class="section__lead">Bridges for first-year students learning math entirely in English — helping everyone cross the language and knowledge gap.</p>
+        <div class="showcase-grid">
+          <article class="showcase-card">
+            <div class="showcase-card__media">
+              <img src="assets/calculus.png" alt="Calculus Bridge course page screenshot" loading="lazy" />
+            </div>
+            <div class="showcase-card__body">
+              <div class="showcase-card__meta">
+                <span class="badge-color">In use</span>
+                <span class="showcase-card__type">Bilingual course site</span>
+              </div>
+              <h3 class="showcase-card__title">Calculus Bridge</h3>
+              <p class="showcase-card__desc">Built for students learning calculus entirely in English — crossing the language and knowledge gap while learning math alongside English terms.</p>
+              <ul class="showcase-card__facts">
+                <li><strong>Audience</strong> First-year students / English-based learners</li>
+                <li><strong>Purpose</strong> Chapter map · Bilingual explanations · Examples &amp; practice</li>
+              </ul>
+              <a class="text-link" href="https://wzhang60.github.io/calculus-bridge/" target="_blank" rel="noopener noreferrer">Visit Calculus Bridge ↗</a>
             </div>
           </article>
-          <article class="card card--project">
-            <div class="card__badge">In progress</div>
-            <h3 class="card__title">Next project</h3>
-            <p class="card__body">A new work currently in preparation — stay tuned. This area will keep growing in upcoming iterations.</p>
+          <article class="showcase-card">
+            <div class="showcase-card__media">
+              <img src="assets/linear-algebra.png" alt="Linear Algebra Bridge course page screenshot" loading="lazy" />
+            </div>
+            <div class="showcase-card__body">
+              <div class="showcase-card__meta">
+                <span class="badge-color">In use</span>
+                <span class="showcase-card__type">Bilingual course map</span>
+              </div>
+              <h3 class="showcase-card__title">Linear Algebra Bridge</h3>
+              <p class="showcase-card__desc">Get familiar with English terms first, then step into the linear algebra classroom. Connecting Chinese concepts to their English counterparts.</p>
+              <ul class="showcase-card__facts">
+                <li><strong>Audience</strong> First-year students / Bilingual learners</li>
+                <li><strong>Purpose</strong> Term recognition · Visual derivations · Classroom bridging</li>
+              </ul>
+              <a class="text-link" href="https://wzhang60.github.io/Linear-Algebra-Bridge/" target="_blank" rel="noopener noreferrer">Visit Linear Algebra Bridge ↗</a>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Interests -->
-    <section id="interests" class="section">
+    <!-- About & Research: how I teach, what I research; Shenzhen / young mindset / no over-striving as personal notes -->
+    <section id="about" class="section section--alt">
       <div class="container">
-        <h2 class="section__title">My Interests</h2>
-        <p class="section__lead">Beyond research and teaching, there's a lot I love in life.</p>
-        <ul class="interest-list">
-          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">⚽</span>Top-five football leagues</li>
-          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎱</span>Billiards</li>
-          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎵</span>Music</li>
-          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">📈</span>Stock trading</li>
-          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎫</span>Sports lottery</li>
-          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">👶</span>Parenting</li>
-        </ul>
+        <h2 class="section__title">About &amp; Research</h2>
+        <p class="section__lead">How I teach, and what I actually research.</p>
+        <div class="about-grid">
+          <article class="about-card">
+            <h3 class="about-card__title">How I teach</h3>
+            <p class="about-card__body">I focus mainly on Vibe Coding, learning AI together with students, turning programming into something everyone can pick up and make real projects with.</p>
+          </article>
+          <article class="about-card">
+            <h3 class="about-card__title">What I research</h3>
+            <p class="about-card__body">Using AI to enable urban hydroponic agriculture and wastewater resource recovery — exploring real applications of AI in sustainable agriculture and environmental engineering.</p>
+          </article>
+          <aside class="about-note">
+            <p class="about-note__label">Personal notes · 侧记</p>
+            <p class="about-note__text"><strong>Shenzhen</strong> A city. I teach, do research, and grow together with students here.</p>
+            <p class="about-note__text"><strong>Young mindset</strong> No over-striving, love to play — but take research seriously. Serious when it matters, relaxed the rest of the time.</p>
+          </aside>
+        </div>
       </div>
     </section>
 
-    <!-- Digital Twin static chat prototype -->
-    <section id="digital-twin" class="section section--alt">
+    <!-- Digital Twin: keep independent experience area + prototype badge; the colored beam is the reserved highlighted effect -->
+    <section id="digital-twin" class="section">
       <div class="container">
         <h2 class="section__title">Digital Twin</h2>
         <p class="section__lead">A growing AI twin prototype. For now it uses a few preset conversations to show how it "introduces me"; real dialogue will come in later lessons.</p>
@@ -167,31 +169,34 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="section">
+    <!-- Life & Contact: compact interests + clear email ending -->
+    <section id="contact" class="section section--alt">
       <div class="container">
-        <h2 class="section__title">Contact Me</h2>
-        <p class="section__lead">Questions, ideas, or potential collaboration? Feel free to reach out.</p>
+        <h2 class="section__title">Life &amp; Contact</h2>
+        <p class="section__lead">Beyond research, there's a lot I love in life. Want to talk or collaborate? Feel free to reach out.</p>
+        <ul class="interest-list" aria-label="Interests">
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">⚽</span>Top-five football leagues</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎱</span>Billiards</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎵</span>Music</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">📈</span>Stock trading</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">🎫</span>Sports lottery</li>
+          <li class="interest-list__item"><span class="interest-list__icon" aria-hidden="true">👶</span>Parenting</li>
+        </ul>
         <div class="contact-links">
-          <a class="contact-card" href="mailto:wzhang60@tju.edu.cn" id="emailLink">
-            <span class="contact-card__label">Email</span>
+          <a class="contact-card contact-card--email" href="mailto:wzhang60@tju.edu.cn" id="emailLink">
+            <span class="contact-card__label">Email · Primary</span>
             <span class="contact-card__value" id="emailValue">wzhang60@tju.edu.cn</span>
           </a>
           <a class="contact-card" href="https://github.com/wzhang60" target="_blank" rel="noopener noreferrer" id="githubLink">
             <span class="contact-card__label">GitHub</span>
             <span class="contact-card__value" id="githubValue">github.com/wzhang60</span>
           </a>
-          <div class="contact-card">
-            <span class="contact-card__label">City</span>
-            <span class="contact-card__value">Shenzhen</span>
-          </div>
         </div>
-        <p class="contact-note">All the contact info above is real and active. Welcome to reach me by email, or visit my GitHub to see my projects.</p>
       </div>
     </section>
-  
+
     <!-- Feedback -->
-    <section id="feedback" class="section section--alt">
+    <section id="feedback" class="section">
       <div class="container">
         <h2 class="section__title">Feedback</h2>
         <p class="section__lead">I'd love to hear what you really think. Leave a note and help me make this better.</p>
@@ -227,7 +232,7 @@
       </div>
     </section>
 
-</main>
+  </main>
 
   <footer class="site-footer">
     <div class="container">
@@ -236,7 +241,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=202609090"></script>
   <script src="js/feedback.js"></script>
 </body>
 </html>
